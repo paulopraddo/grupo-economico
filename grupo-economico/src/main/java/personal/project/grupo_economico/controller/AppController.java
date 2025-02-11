@@ -1,7 +1,10 @@
 package personal.project.grupo_economico.controller;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.AllArgsConstructor;
 import personal.project.grupo_economico.restModels.GetGrupoEconomicoRestModel;
 import personal.project.grupo_economico.restModels.UploadGrupoEconomicoRestModel;
+import personal.project.grupo_economico.useCases.GetAllGrupoEconomicoUseCase;
 import personal.project.grupo_economico.useCases.GetGrupoEconomicoUseCase;
 import personal.project.grupo_economico.useCases.UploadGrupoEconomicoUseCase;
 
@@ -20,8 +24,7 @@ public class AppController {
 
     private final UploadGrupoEconomicoUseCase uploadGrupoEconomicoUseCase;
     private final GetGrupoEconomicoUseCase getGrupoEconomicoUseCase;
-
-    
+    private final GetAllGrupoEconomicoUseCase getAllGrupoEconomicoUseCase;
 
     @PostMapping("/grupo-economico")
     public void uploadGrupoEconomico(@RequestBody UploadGrupoEconomicoRestModel restModel) {
@@ -30,10 +33,22 @@ public class AppController {
 
     }
 
-    @GetMapping("/grupo-economico")
-    public ResponseEntity<GetGrupoEconomicoRestModel> getGrupoEconomico(String id) {
+    @GetMapping("/grupo-economico/{id}")
+    public ResponseEntity<GetGrupoEconomicoRestModel> getGrupoEconomicoById(@PathVariable String id) {
 
         return ResponseEntity.ok().body(this.getGrupoEconomicoUseCase.execute(id));
+        
+    }
+    
+    @GetMapping("/grupo-economico")
+    public ResponseEntity<List<GetGrupoEconomicoRestModel>> getGrupoEconomico() {
+        
+        return ResponseEntity.ok().body(this.getAllGrupoEconomicoUseCase.execute());
+        
+    }
+
+    public ResponseEntity updateGrupoEconomico() {
+        return ResponseEntity.ok().build();
     }
 
 }

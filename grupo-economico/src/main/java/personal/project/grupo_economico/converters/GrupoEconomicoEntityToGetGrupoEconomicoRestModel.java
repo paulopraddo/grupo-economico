@@ -1,5 +1,8 @@
 package personal.project.grupo_economico.converters;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Component;
 
 import personal.project.grupo_economico.entitys.GrupoEconomicoEntity;
@@ -21,6 +24,14 @@ public class GrupoEconomicoEntityToGetGrupoEconomicoRestModel extends ModelEntit
     public GrupoEconomicoEntity convertToEntity(GetGrupoEconomicoRestModel model) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'convertToEntity'");
+    }
+
+    public List<GetGrupoEconomicoRestModel> convertToRestModelList(List<GrupoEconomicoEntity> entityList) {
+
+        return entityList.stream()
+        .map(this::convertToRestModel)
+        .collect(Collectors.toList());
+        
     }
 
 }
