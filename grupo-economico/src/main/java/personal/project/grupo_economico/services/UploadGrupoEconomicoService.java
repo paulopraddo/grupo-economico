@@ -4,9 +4,9 @@ import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
 import personal.project.grupo_economico.converters.UploadGrupoEconomicoRestModelToGrupoEconomicoEntity;
+import personal.project.grupo_economico.dtos.UploadGrupoEconomicoRestModel;
 import personal.project.grupo_economico.entitys.GrupoEconomicoEntity;
 import personal.project.grupo_economico.repository.GrupoEconomicoRepository;
-import personal.project.grupo_economico.restModels.UploadGrupoEconomicoRestModel;
 import personal.project.grupo_economico.useCases.UploadGrupoEconomicoUseCase;
 
 @Service

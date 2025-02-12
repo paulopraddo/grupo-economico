@@ -5,8 +5,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
+import personal.project.grupo_economico.dtos.GetGrupoEconomicoRestModel;
 import personal.project.grupo_economico.entitys.GrupoEconomicoEntity;
-import personal.project.grupo_economico.restModels.GetGrupoEconomicoRestModel;
 import personal.project.grupo_economico.utils.ModelEntityMapper;
 
 @Component

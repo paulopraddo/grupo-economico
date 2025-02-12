@@ -1,6 +1,6 @@
 package personal.project.grupo_economico.useCases;
 
-import personal.project.grupo_economico.restModels.GetGrupoEconomicoRestModel;
+import personal.project.grupo_economico.dtos.GetGrupoEconomicoRestModel;
 
 public interface GetGrupoEconomicoUseCase {
 

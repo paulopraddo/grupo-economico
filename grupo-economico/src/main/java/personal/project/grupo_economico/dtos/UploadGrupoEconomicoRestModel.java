@@ -1,4 +1,4 @@
-package personal.project.grupo_economico.restModels;
+package personal.project.grupo_economico.dtos;
 
 import lombok.Data;
 
