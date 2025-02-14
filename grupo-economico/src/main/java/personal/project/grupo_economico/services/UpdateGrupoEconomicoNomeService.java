@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
 import personal.project.grupo_economico.dtos.UpdateGrupoEconomicoNomeDto;
+import personal.project.grupo_economico.entitys.GrupoEconomicoEntity;
 import personal.project.grupo_economico.repository.GrupoEconomicoRepository;
 import personal.project.grupo_economico.useCases.UpdateGrupoEconomicoNomeUseCase;
 
@@ -16,7 +17,15 @@ public class UpdateGrupoEconomicoNomeService implements UpdateGrupoEconomicoNome
     @Override
     public void execute(UpdateGrupoEconomicoNomeDto dto) {
         
-        this.repository.atualizarNome(dto.getId(), dto.getNome());
+        GrupoEconomicoEntity entity = this.repository.findById(dto.getId()).orElse(null);
+
+        if(entity == null) {
+            throw new RuntimeException();
+        }
+
+        entity.setNome(dto.getNome());
+
+        this.repository.save(entity);
     }
     
 }

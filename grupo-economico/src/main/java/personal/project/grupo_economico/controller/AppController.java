@@ -3,8 +3,8 @@ package personal.project.grupo_economico.controller;
 
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,13 +17,14 @@ import lombok.AllArgsConstructor;
 import personal.project.grupo_economico.dtos.GetGrupoEconomicoRestModel;
 import personal.project.grupo_economico.dtos.UpdateGrupoEconomicoNomeDto;
 import personal.project.grupo_economico.dtos.UploadGrupoEconomicoRestModel;
+import personal.project.grupo_economico.useCases.DeleteGrupoEconomicoUseCase;
 import personal.project.grupo_economico.useCases.GetAllGrupoEconomicoUseCase;
 import personal.project.grupo_economico.useCases.GetGrupoEconomicoUseCase;
 import personal.project.grupo_economico.useCases.UpdateGrupoEconomicoNomeUseCase;
 import personal.project.grupo_economico.useCases.UploadGrupoEconomicoUseCase;
 
 @RestController
-@RequestMapping("/app")
+@RequestMapping("/app/grupo-economico")
 @AllArgsConstructor
 public class AppController {
 
@@ -31,34 +32,45 @@ public class AppController {
     private final GetGrupoEconomicoUseCase getGrupoEconomicoUseCase;
     private final GetAllGrupoEconomicoUseCase getAllGrupoEconomicoUseCase;
     private final UpdateGrupoEconomicoNomeUseCase updateGrupoEconomicoService;
+    private final DeleteGrupoEconomicoUseCase deleteGrupoEconomicoUseCase;
 
-    @PostMapping("/grupo-economico")
-    public void uploadGrupoEconomico(@RequestBody UploadGrupoEconomicoRestModel restModel) {
+    @PostMapping
+    public ResponseEntity<String> uploadGrupoEconomico(@RequestBody UploadGrupoEconomicoRestModel restModel) {
     
         this.uploadGrupoEconomicoUseCase.execute(restModel);
 
+        return ResponseEntity.ok().body("Grupo economico adicionado com sucesso.");
+
     }
 
-    @GetMapping("/grupo-economico/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<GetGrupoEconomicoRestModel> getGrupoEconomicoById(@PathVariable String id) {
 
         return ResponseEntity.ok().body(this.getGrupoEconomicoUseCase.execute(id));
         
     }
     
-    @GetMapping("/grupo-economico")
+    @GetMapping
     public ResponseEntity<List<GetGrupoEconomicoRestModel>> getGrupoEconomico() {
         
         return ResponseEntity.ok().body(this.getAllGrupoEconomicoUseCase.execute());
         
     }
 
-    @PutMapping("/grupo-economico")
-    public ResponseEntity<HttpStatus> updateGrupoEconomicoNome(@RequestBody UpdateGrupoEconomicoNomeDto dto) {                                                                                            
+    @PutMapping
+    public ResponseEntity<String> updateGrupoEconomicoNome(@RequestBody UpdateGrupoEconomicoNomeDto dto) {                                                                                            
 
         this.updateGrupoEconomicoService.execute(dto);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body("Grupo economico atualizado com sucesso");
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteGrupoEconomico(@PathVariable String id) {
+        
+        this.deleteGrupoEconomicoUseCase.execute(id);
+
+        return ResponseEntity.ok().body("Grupo economico deletado com sucesso");
     }
 
 }
