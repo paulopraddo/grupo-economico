@@ -1,25 +1,30 @@
-package personal.project.grupo_economico.services;
+package personal.project.grupo_economico.domain.grupoEconomico.services;
 
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
-import personal.project.grupo_economico.converters.GrupoEconomicoEntityToGetGrupoEconomicoRestModel;
-import personal.project.grupo_economico.dtos.GetGrupoEconomicoRestModel;
-import personal.project.grupo_economico.entitys.GrupoEconomicoEntity;
-import personal.project.grupo_economico.repository.GrupoEconomicoRepository;
-import personal.project.grupo_economico.useCases.GetGrupoEconomicoUseCase;
+import personal.project.grupo_economico.app.grupoEconomico.provider.GrupoEconomicoDataProvider;
+import personal.project.grupo_economico.app.grupoEconomico.provider.entity.GrupoEconomicoEntity;
+import personal.project.grupo_economico.app.grupoEconomico.restModels.GetGrupoEconomicoRestModel;
+import personal.project.grupo_economico.domain.grupoEconomico.converters.GrupoEconomicoEntityToGetGrupoEconomicoRestModel;
+import personal.project.grupo_economico.domain.grupoEconomico.useCases.GetGrupoEconomicoUseCase;
 
 @Service
 @AllArgsConstructor
 public class GetGrupoEconomicoService implements GetGrupoEconomicoUseCase {
 
-    private final GrupoEconomicoRepository repository;
+    private final GrupoEconomicoDataProvider dataProvider;
     private final GrupoEconomicoEntityToGetGrupoEconomicoRestModel converter;
 
     @Override
     public GetGrupoEconomicoRestModel execute(String id) {
         
-        GrupoEconomicoEntity entity = this.repository.findById(id).orElse(null);
+        GrupoEconomicoEntity entity = this.dataProvider.getGrupoEconomicoEntityById(id);
+
+        if(entity == null) {
+            throw new RuntimeException("Grupo economico não pode ser encontrado, insira um ID correto");
+        }
+        
         return this.converter.convertToRestModel(entity);
     }
 

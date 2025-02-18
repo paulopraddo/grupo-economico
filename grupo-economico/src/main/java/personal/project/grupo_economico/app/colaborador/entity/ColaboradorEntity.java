@@ -1,4 +1,4 @@
-package personal.project.grupo_economico.entitys;
+package personal.project.grupo_economico.app.colaborador.entity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -11,6 +11,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import personal.project.grupo_economico.app.unidade.entity.UnidadeEntity;
 
 @Getter
 @Entity

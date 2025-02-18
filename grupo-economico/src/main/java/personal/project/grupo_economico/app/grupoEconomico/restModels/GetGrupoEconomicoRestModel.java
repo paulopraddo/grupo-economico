@@ -1,4 +1,4 @@
-package personal.project.grupo_economico.dtos;
+package personal.project.grupo_economico.app.grupoEconomico.restModels;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

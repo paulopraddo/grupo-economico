@@ -1,9 +1,9 @@
-package personal.project.grupo_economico.converters;
+package personal.project.grupo_economico.domain.grupoEconomico.converters;
 
 import org.springframework.stereotype.Component;
 
-import personal.project.grupo_economico.dtos.UploadGrupoEconomicoRestModel;
-import personal.project.grupo_economico.entitys.GrupoEconomicoEntity;
+import personal.project.grupo_economico.app.grupoEconomico.provider.entity.GrupoEconomicoEntity;
+import personal.project.grupo_economico.app.grupoEconomico.restModels.UploadGrupoEconomicoRestModel;
 import personal.project.grupo_economico.utils.ModelEntityMapper;
 
 @Component

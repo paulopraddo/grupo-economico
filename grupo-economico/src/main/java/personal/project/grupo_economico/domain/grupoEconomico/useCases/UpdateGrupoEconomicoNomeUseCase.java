@@ -1,6 +1,6 @@
-package personal.project.grupo_economico.useCases;
+package personal.project.grupo_economico.domain.grupoEconomico.useCases;
 
-import personal.project.grupo_economico.dtos.UpdateGrupoEconomicoNomeDto;
+import personal.project.grupo_economico.app.grupoEconomico.restModels.UpdateGrupoEconomicoNomeDto;
 
 public interface UpdateGrupoEconomicoNomeUseCase {
 

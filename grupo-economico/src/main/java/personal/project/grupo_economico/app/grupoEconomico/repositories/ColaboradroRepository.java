@@ -1,9 +1,9 @@
-package personal.project.grupo_economico.repository;
+package personal.project.grupo_economico.app.grupoEconomico.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import personal.project.grupo_economico.entitys.ColaboradorEntity;
+import personal.project.grupo_economico.app.colaborador.entity.ColaboradorEntity;
 
 @Repository
 public interface ColaboradroRepository extends JpaRepository<ColaboradorEntity, String> {

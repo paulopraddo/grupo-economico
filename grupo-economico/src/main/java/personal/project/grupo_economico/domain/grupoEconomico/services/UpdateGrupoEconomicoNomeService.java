@@ -1,31 +1,29 @@
-package personal.project.grupo_economico.services;
+package personal.project.grupo_economico.domain.grupoEconomico.services;
 
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
-import personal.project.grupo_economico.dtos.UpdateGrupoEconomicoNomeDto;
-import personal.project.grupo_economico.entitys.GrupoEconomicoEntity;
-import personal.project.grupo_economico.repository.GrupoEconomicoRepository;
-import personal.project.grupo_economico.useCases.UpdateGrupoEconomicoNomeUseCase;
+import personal.project.grupo_economico.app.grupoEconomico.provider.GrupoEconomicoDataProvider;
+import personal.project.grupo_economico.app.grupoEconomico.provider.entity.GrupoEconomicoEntity;
+import personal.project.grupo_economico.app.grupoEconomico.restModels.UpdateGrupoEconomicoNomeDto;
+import personal.project.grupo_economico.domain.grupoEconomico.useCases.UpdateGrupoEconomicoNomeUseCase;
 
 @Service
 @AllArgsConstructor
 public class UpdateGrupoEconomicoNomeService implements UpdateGrupoEconomicoNomeUseCase{
 
-    private final GrupoEconomicoRepository repository;
+    private final GrupoEconomicoDataProvider dataProvider;
 
     @Override
     public void execute(UpdateGrupoEconomicoNomeDto dto) {
         
-        GrupoEconomicoEntity entity = this.repository.findById(dto.getId()).orElse(null);
+        GrupoEconomicoEntity entity = this.dataProvider.getGrupoEconomicoEntityById(dto.getId());
 
         if(entity == null) {
-            throw new RuntimeException();
+            throw new RuntimeException("Grupo economico não pode ser encontrado, insira um ID correto");
         }
 
-        entity.setNome(dto.getNome());
-
-        this.repository.save(entity);
+        this.dataProvider.updateGrupoEconomicoEntity(dto);
     }
     
 }

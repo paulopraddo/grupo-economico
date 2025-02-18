@@ -1,27 +1,27 @@
-package personal.project.grupo_economico.services;
+package personal.project.grupo_economico.domain.grupoEconomico.services;
 
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
-import personal.project.grupo_economico.entitys.GrupoEconomicoEntity;
-import personal.project.grupo_economico.repository.GrupoEconomicoRepository;
-import personal.project.grupo_economico.useCases.DeleteGrupoEconomicoUseCase;
+import personal.project.grupo_economico.app.grupoEconomico.provider.GrupoEconomicoDataProvider;
+import personal.project.grupo_economico.app.grupoEconomico.provider.entity.GrupoEconomicoEntity;
+import personal.project.grupo_economico.domain.grupoEconomico.useCases.DeleteGrupoEconomicoUseCase;
 
 @Service
 @AllArgsConstructor
 public class DeleteGrupoEconomicoService implements DeleteGrupoEconomicoUseCase{
 
-    private final GrupoEconomicoRepository repository;
+    private final GrupoEconomicoDataProvider dataProvider;
 
     @Override
     public void execute(String id) {
-        GrupoEconomicoEntity entity = this.repository.findById(id).orElse(null);
+        GrupoEconomicoEntity entity = this.dataProvider.getGrupoEconomicoEntityById(id);
 
         if(entity == null) {
-            throw new RuntimeException();
+            throw new RuntimeException("Grupo economico não pode ser encontrado, insira um ID correto");
         }
 
-        this.repository.delete(entity);
+        this.dataProvider.deleteGrupoEconomicoEntityById(id);
     }
 
 

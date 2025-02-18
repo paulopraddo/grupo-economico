@@ -1,4 +1,4 @@
-package personal.project.grupo_economico.controller;
+package personal.project.grupo_economico.app.grupoEconomico.entrypoints;
 
 
 import java.util.List;
@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
-import personal.project.grupo_economico.dtos.GetGrupoEconomicoRestModel;
-import personal.project.grupo_economico.dtos.UpdateGrupoEconomicoNomeDto;
-import personal.project.grupo_economico.dtos.UploadGrupoEconomicoRestModel;
-import personal.project.grupo_economico.useCases.DeleteGrupoEconomicoUseCase;
-import personal.project.grupo_economico.useCases.GetAllGrupoEconomicoUseCase;
-import personal.project.grupo_economico.useCases.GetGrupoEconomicoUseCase;
-import personal.project.grupo_economico.useCases.UpdateGrupoEconomicoNomeUseCase;
-import personal.project.grupo_economico.useCases.UploadGrupoEconomicoUseCase;
+import personal.project.grupo_economico.app.grupoEconomico.restModels.GetGrupoEconomicoRestModel;
+import personal.project.grupo_economico.app.grupoEconomico.restModels.UpdateGrupoEconomicoNomeDto;
+import personal.project.grupo_economico.app.grupoEconomico.restModels.UploadGrupoEconomicoRestModel;
+import personal.project.grupo_economico.domain.grupoEconomico.useCases.DeleteGrupoEconomicoUseCase;
+import personal.project.grupo_economico.domain.grupoEconomico.useCases.GetAllGrupoEconomicoUseCase;
+import personal.project.grupo_economico.domain.grupoEconomico.useCases.GetGrupoEconomicoUseCase;
+import personal.project.grupo_economico.domain.grupoEconomico.useCases.UpdateGrupoEconomicoNomeUseCase;
+import personal.project.grupo_economico.domain.grupoEconomico.useCases.UploadGrupoEconomicoUseCase;
 
 @RestController
 @RequestMapping("/app/grupo-economico")
