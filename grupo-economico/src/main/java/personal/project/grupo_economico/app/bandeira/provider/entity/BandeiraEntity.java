@@ -1,4 +1,4 @@
-package personal.project.grupo_economico.app.bandeira.entity;
+package personal.project.grupo_economico.app.bandeira.provider.entity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
