@@ -1,9 +1,12 @@
 package personal.project.grupo_economico.domain.bandeira.converters;
 
+import org.springframework.stereotype.Component;
+
 import personal.project.grupo_economico.app.bandeira.provider.entity.BandeiraEntity;
 import personal.project.grupo_economico.app.bandeira.restModels.UploadBandeiraRestModel;
 import personal.project.grupo_economico.utils.ModelEntityMapper;
 
+@Component
 public class UploadBandeiraRestModelToBandeiraEntity extends ModelEntityMapper<BandeiraEntity, UploadBandeiraRestModel>{
 
     @Override

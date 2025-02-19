@@ -1,4 +1,4 @@
-package personal.project.grupo_economico.app.grupoEconomico.repositories;
+package personal.project.grupo_economico.app.grupoEconomico.repository;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;

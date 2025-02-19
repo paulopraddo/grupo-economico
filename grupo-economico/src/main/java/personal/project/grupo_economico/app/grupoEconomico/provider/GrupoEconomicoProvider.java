@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
 import personal.project.grupo_economico.app.grupoEconomico.provider.entity.GrupoEconomicoEntity;
-import personal.project.grupo_economico.app.grupoEconomico.repositories.GrupoEconomicoRepository;
+import personal.project.grupo_economico.app.grupoEconomico.repository.GrupoEconomicoRepository;
 import personal.project.grupo_economico.app.grupoEconomico.restModels.UpdateGrupoEconomicoNomeDto;
 
 @Component

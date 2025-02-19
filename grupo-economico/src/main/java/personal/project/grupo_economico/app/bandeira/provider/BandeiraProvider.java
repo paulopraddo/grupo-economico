@@ -1,10 +1,10 @@
-package personal.project.grupo_economico.app.bandeira.provider.entity;
+package personal.project.grupo_economico.app.bandeira.provider;
 
 import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
-import personal.project.grupo_economico.app.bandeira.provider.BandeiraDataProvider;
-import personal.project.grupo_economico.app.grupoEconomico.repositories.BandeiraRepository;
+import personal.project.grupo_economico.app.bandeira.provider.entity.BandeiraEntity;
+import personal.project.grupo_economico.app.bandeira.repository.BandeiraRepository;
 
 @Component
 @AllArgsConstructor

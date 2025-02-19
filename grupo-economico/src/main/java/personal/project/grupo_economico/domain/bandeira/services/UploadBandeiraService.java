@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import personal.project.grupo_economico.app.bandeira.provider.BandeiraDataProvider;
 import personal.project.grupo_economico.app.bandeira.provider.entity.BandeiraEntity;
 import personal.project.grupo_economico.app.bandeira.restModels.UploadBandeiraRestModel;
+import personal.project.grupo_economico.app.grupoEconomico.provider.GrupoEconomicoDataProvider;
 import personal.project.grupo_economico.domain.bandeira.converters.UploadBandeiraRestModelToBandeiraEntity;
 import personal.project.grupo_economico.domain.bandeira.useCases.UploadBandeiraUseCase;
 
@@ -13,7 +14,8 @@ import personal.project.grupo_economico.domain.bandeira.useCases.UploadBandeiraU
 @AllArgsConstructor
 public class UploadBandeiraService implements UploadBandeiraUseCase{
 
-    private final BandeiraDataProvider dataProvider;
+    private final BandeiraDataProvider bandeiraDataProvider;
+    private final GrupoEconomicoDataProvider grupoEconomicoDataProvider;
     private final UploadBandeiraRestModelToBandeiraEntity converter;
 
     @Override
@@ -21,9 +23,9 @@ public class UploadBandeiraService implements UploadBandeiraUseCase{
 
         BandeiraEntity entity = this.converter.convertToEntity(restModel);
         
-        entity.setGrupoEconomico(null);
+        entity.setGrupoEconomico(this.grupoEconomicoDataProvider.getGrupoEconomicoEntityById(restModel.getGrupoEconomicoId()));
 
-        this.dataProvider.updateBandeiraEntity(null);
+        this.bandeiraDataProvider.updateBandeiraEntity(entity);
     }
 
 }

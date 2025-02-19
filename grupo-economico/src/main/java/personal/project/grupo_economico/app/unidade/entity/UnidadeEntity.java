@@ -11,7 +11,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
-import personal.project.grupo_economico.app.bandeira.entity.BandeiraEntity;
+import personal.project.grupo_economico.app.bandeira.provider.entity.BandeiraEntity;
 
 @Getter
 @Entity
