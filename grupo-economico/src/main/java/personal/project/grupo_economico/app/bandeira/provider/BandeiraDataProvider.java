@@ -4,5 +4,9 @@ import personal.project.grupo_economico.app.bandeira.provider.entity.BandeiraEnt
 
 public interface BandeiraDataProvider {
 
+    void uploadBandeira(BandeiraEntity entity);
+
+    BandeiraEntity getBandeiraEntity(String id);
+
     void updateBandeiraEntity(BandeiraEntity entity);
 }
