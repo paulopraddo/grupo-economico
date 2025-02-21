@@ -23,7 +23,7 @@ public class UpdateGrupoEconomicoNomeService implements UpdateGrupoEconomicoNome
             throw new RuntimeException("Grupo economico não pode ser encontrado, insira um ID correto");
         }
 
-        this.dataProvider.updateGrupoEconomicoEntity(dto);
+        this.dataProvider.updateGrupoEconomicoNome(dto);
     }
     
 }

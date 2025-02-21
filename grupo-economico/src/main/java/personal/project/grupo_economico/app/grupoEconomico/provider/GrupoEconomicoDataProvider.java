@@ -13,7 +13,7 @@ public interface GrupoEconomicoDataProvider {
 
     List<GrupoEconomicoEntity> getListOfGrupoEconomicoEntity();
 
-    void updateGrupoEconomicoEntity(UpdateGrupoEconomicoNomeDto dto);
+    void updateGrupoEconomicoNome(UpdateGrupoEconomicoNomeDto dto);
 
     void deleteGrupoEconomicoEntityById(String id);
     
