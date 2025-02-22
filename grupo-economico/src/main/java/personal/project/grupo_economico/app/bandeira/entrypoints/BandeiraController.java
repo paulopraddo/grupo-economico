@@ -1,6 +1,7 @@
 package personal.project.grupo_economico.app.bandeira.entrypoints;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import personal.project.grupo_economico.app.bandeira.restModels.GetBandeiraRestM
 import personal.project.grupo_economico.app.bandeira.restModels.UpdateBandeiraGrupoEconomicoRestModel;
 import personal.project.grupo_economico.app.bandeira.restModels.UpdateBandeiraNomeRestModel;
 import personal.project.grupo_economico.app.bandeira.restModels.UploadBandeiraRestModel;
+import personal.project.grupo_economico.domain.bandeira.useCases.DeleteBandeiraUseCase;
 import personal.project.grupo_economico.domain.bandeira.useCases.GetBandeiraUseCase;
 import personal.project.grupo_economico.domain.bandeira.useCases.UpdateBandeiraGrupoEconomicoUseCase;
 import personal.project.grupo_economico.domain.bandeira.useCases.UpdateBandeiraNomeUseCase;
@@ -27,6 +29,7 @@ public class BandeiraController {
     private final UploadBandeiraUseCase uploadBandeiraUseCase;
     private final GetBandeiraUseCase getBandeiraUseCase;
     private final UpdateBandeiraNomeUseCase updateBandeiraNomeUseCase;
+    private final DeleteBandeiraUseCase deleteBandeiraUseCase;
     private final UpdateBandeiraGrupoEconomicoUseCase updateBandeiraGrupoEconomicoUseCase;
 
     @PostMapping
@@ -49,12 +52,21 @@ public class BandeiraController {
 
         return ResponseEntity.ok().body("Nome da bandeira atualizado com sucesso");
     }
-
-    @PutMapping("/grupoEconomico")
+  
+   @PutMapping("/grupoEconomico")
     public ResponseEntity<String> updateBandeiraGrupoEconomico(@RequestBody UpdateBandeiraGrupoEconomicoRestModel restModel) {
         
         this.updateBandeiraGrupoEconomicoUseCase.execute(restModel);
 
         return ResponseEntity.ok().body("Nome do grupo economico atualizado com sucesso");
+
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteBandeira(@PathVariable String id) {
+
+        this.deleteBandeiraUseCase.execute(id);
+
+        return ResponseEntity.ok().body("Bandeira deletada com sucesso");
+      
 }
