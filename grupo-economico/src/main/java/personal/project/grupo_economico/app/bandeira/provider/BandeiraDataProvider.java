@@ -13,4 +13,6 @@ public interface BandeiraDataProvider {
     void updateBandeiraEntityNome(UpdateBandeiraNomeRestModel restModel);
     
     int updateBandeiraEntityGrupoEconomico(UpdateBandeiraGrupoEconomicoRestModel restModel);
+
+    void deleteBandeira(String id);
 }

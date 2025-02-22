@@ -39,4 +39,9 @@ public class BandeiraProvider implements BandeiraDataProvider {
         return this.repository.atualizarGrupoEconomico(restModel.getId(), restModel.getGrupoEconomicoId());
     }
 
+    @Override
+    public void deleteBandeira(String id) {
+        this.repository.deleteById(id);
+    }
+
 }
