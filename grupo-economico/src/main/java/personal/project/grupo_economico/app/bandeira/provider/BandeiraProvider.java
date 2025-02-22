@@ -1,5 +1,7 @@
 package personal.project.grupo_economico.app.bandeira.provider;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
@@ -22,6 +24,11 @@ public class BandeiraProvider implements BandeiraDataProvider {
     @Override
     public BandeiraEntity getBandeiraEntity(String id) {
         return this.repository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<BandeiraEntity> getAllBandeiraEntitys() {
+        return this.repository.findAll();
     }
 
     @Override
