@@ -68,5 +68,5 @@ public class BandeiraController {
         this.deleteBandeiraUseCase.execute(id);
 
         return ResponseEntity.ok().body("Bandeira deletada com sucesso");
-      
+    }
 }
