@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
 import personal.project.grupo_economico.app.bandeira.restModels.GetBandeiraRestModel;
+import personal.project.grupo_economico.app.bandeira.restModels.UpdateBandeiraGrupoEconomicoRestModel;
 import personal.project.grupo_economico.app.bandeira.restModels.UpdateBandeiraNomeRestModel;
 import personal.project.grupo_economico.app.bandeira.restModels.UploadBandeiraRestModel;
 import personal.project.grupo_economico.domain.bandeira.useCases.GetBandeiraUseCase;
+import personal.project.grupo_economico.domain.bandeira.useCases.UpdateBandeiraGrupoEconomicoUseCase;
 import personal.project.grupo_economico.domain.bandeira.useCases.UpdateBandeiraNomeUseCase;
 import personal.project.grupo_economico.domain.bandeira.useCases.UploadBandeiraUseCase;
 
@@ -25,6 +27,7 @@ public class BandeiraController {
     private final UploadBandeiraUseCase uploadBandeiraUseCase;
     private final GetBandeiraUseCase getBandeiraUseCase;
     private final UpdateBandeiraNomeUseCase updateBandeiraNomeUseCase;
+    private final UpdateBandeiraGrupoEconomicoUseCase updateBandeiraGrupoEconomicoUseCase;
 
     @PostMapping
     public void uploadBandeira(@RequestBody UploadBandeiraRestModel restModel) {
@@ -45,5 +48,13 @@ public class BandeiraController {
         this.updateBandeiraNomeUseCase.execute(restModel);
 
         return ResponseEntity.ok().body("Nome da bandeira atualizado com sucesso");
+    }
+
+    @PutMapping("/grupoEconomico")
+    public ResponseEntity<String> updateBandeiraGrupoEconomico(@RequestBody UpdateBandeiraGrupoEconomicoRestModel restModel) {
+        
+        this.updateBandeiraGrupoEconomicoUseCase.execute(restModel);
+
+        return ResponseEntity.ok().body("Nome do grupo economico atualizado com sucesso");
     }
 }
