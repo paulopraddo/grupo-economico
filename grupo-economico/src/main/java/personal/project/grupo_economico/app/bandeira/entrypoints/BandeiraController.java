@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
 import personal.project.grupo_economico.app.bandeira.restModels.GetBandeiraRestModel;
+import personal.project.grupo_economico.app.bandeira.restModels.UpdateBandeiraGrupoEconomicoRestModel;
 import personal.project.grupo_economico.app.bandeira.restModels.UpdateBandeiraNomeRestModel;
 import personal.project.grupo_economico.app.bandeira.restModels.UploadBandeiraRestModel;
 import personal.project.grupo_economico.domain.bandeira.useCases.DeleteBandeiraUseCase;
 import personal.project.grupo_economico.domain.bandeira.useCases.GetBandeiraUseCase;
+import personal.project.grupo_economico.domain.bandeira.useCases.UpdateBandeiraGrupoEconomicoUseCase;
 import personal.project.grupo_economico.domain.bandeira.useCases.UpdateBandeiraNomeUseCase;
 import personal.project.grupo_economico.domain.bandeira.useCases.UploadBandeiraUseCase;
 
@@ -28,6 +30,7 @@ public class BandeiraController {
     private final GetBandeiraUseCase getBandeiraUseCase;
     private final UpdateBandeiraNomeUseCase updateBandeiraNomeUseCase;
     private final DeleteBandeiraUseCase deleteBandeiraUseCase;
+    private final UpdateBandeiraGrupoEconomicoUseCase updateBandeiraGrupoEconomicoUseCase;
 
     @PostMapping
     public void uploadBandeira(@RequestBody UploadBandeiraRestModel restModel) {
@@ -49,6 +52,15 @@ public class BandeiraController {
 
         return ResponseEntity.ok().body("Nome da bandeira atualizado com sucesso");
     }
+  
+   @PutMapping("/grupoEconomico")
+    public ResponseEntity<String> updateBandeiraGrupoEconomico(@RequestBody UpdateBandeiraGrupoEconomicoRestModel restModel) {
+        
+        this.updateBandeiraGrupoEconomicoUseCase.execute(restModel);
+
+        return ResponseEntity.ok().body("Nome do grupo economico atualizado com sucesso");
+
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteBandeira(@PathVariable String id) {
@@ -56,5 +68,5 @@ public class BandeiraController {
         this.deleteBandeiraUseCase.execute(id);
 
         return ResponseEntity.ok().body("Bandeira deletada com sucesso");
-    }
+      
 }
