@@ -1,5 +1,7 @@
 package personal.project.grupo_economico.app.bandeira.entrypoints;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,7 @@ import personal.project.grupo_economico.app.bandeira.restModels.UpdateBandeiraGr
 import personal.project.grupo_economico.app.bandeira.restModels.UpdateBandeiraNomeRestModel;
 import personal.project.grupo_economico.app.bandeira.restModels.UploadBandeiraRestModel;
 import personal.project.grupo_economico.domain.bandeira.useCases.DeleteBandeiraUseCase;
+import personal.project.grupo_economico.domain.bandeira.useCases.GetAllBandeirasUseCase;
 import personal.project.grupo_economico.domain.bandeira.useCases.GetBandeiraUseCase;
 import personal.project.grupo_economico.domain.bandeira.useCases.UpdateBandeiraGrupoEconomicoUseCase;
 import personal.project.grupo_economico.domain.bandeira.useCases.UpdateBandeiraNomeUseCase;
@@ -28,6 +31,7 @@ public class BandeiraController {
 
     private final UploadBandeiraUseCase uploadBandeiraUseCase;
     private final GetBandeiraUseCase getBandeiraUseCase;
+    private final GetAllBandeirasUseCase getAllBandeirasUseCase;
     private final UpdateBandeiraNomeUseCase updateBandeiraNomeUseCase;
     private final DeleteBandeiraUseCase deleteBandeiraUseCase;
     private final UpdateBandeiraGrupoEconomicoUseCase updateBandeiraGrupoEconomicoUseCase;
@@ -40,9 +44,19 @@ public class BandeiraController {
     }
 
     @GetMapping("/{id}")
-    public GetBandeiraRestModel getBandeira(@PathVariable String id) {
-        
-        return this.getBandeiraUseCase.execute(id);
+    public ResponseEntity<GetBandeiraRestModel> getBandeira(@PathVariable String id) {
+
+        GetBandeiraRestModel restModel = this.getBandeiraUseCase.execute(id);
+
+        return ResponseEntity.ok().body(restModel);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<GetBandeiraRestModel>> getAllBandeiras() {
+
+        List<GetBandeiraRestModel> restModelsList = this.getAllBandeirasUseCase.execute();
+
+        return ResponseEntity.ok().body(restModelsList);
     }
 
     @PutMapping("/nome")
