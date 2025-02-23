@@ -26,7 +26,7 @@ import personal.project.grupo_economico.domain.grupoEconomico.useCases.UploadGru
 @RestController
 @RequestMapping("/app/grupo-economico")
 @AllArgsConstructor
-public class AppController {
+public class GrupoEconomicoController {
 
     private final UploadGrupoEconomicoUseCase uploadGrupoEconomicoUseCase;
     private final GetGrupoEconomicoUseCase getGrupoEconomicoUseCase;
