@@ -1,14 +1,20 @@
 package personal.project.grupo_economico.app.unidade.provider;
 
-import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
 
+import lombok.AllArgsConstructor;
+import personal.project.grupo_economico.app.unidade.provider.entity.UnidadeEntity;
+import personal.project.grupo_economico.app.unidade.repository.UnidadeRepository;
+
+@Component
 @AllArgsConstructor
 public class UnidadeProvider implements UnidadeDataProvider{
 
+    private final UnidadeRepository repository;
+
     @Override
-    public void uploadUnidade() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'uploadUnidade'");
+    public void uploadUnidade(UnidadeEntity entity) {
+        this.repository.save(entity);
     }
 
 }
