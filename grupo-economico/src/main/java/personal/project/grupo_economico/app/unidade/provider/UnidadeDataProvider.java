@@ -5,4 +5,6 @@ import personal.project.grupo_economico.app.unidade.provider.entity.UnidadeEntit
 public interface UnidadeDataProvider {
 
     void uploadUnidade(UnidadeEntity entity);
+
+    UnidadeEntity getUnidade(String id);
 }
