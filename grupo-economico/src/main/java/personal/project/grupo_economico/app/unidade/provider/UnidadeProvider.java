@@ -17,4 +17,10 @@ public class UnidadeProvider implements UnidadeDataProvider{
         this.repository.save(entity);
     }
 
+    @Override
+    public UnidadeEntity getUnidade(String id) {
+        return this.repository.findById(id).orElse(null);
+    }
+    
+
 }
