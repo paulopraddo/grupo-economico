@@ -1,5 +1,7 @@
 package personal.project.grupo_economico.app.unidade.provider;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
@@ -20,6 +22,11 @@ public class UnidadeProvider implements UnidadeDataProvider{
     @Override
     public UnidadeEntity getUnidade(String id) {
         return this.repository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<UnidadeEntity> getListOfUnidade() {
+        return this.repository.findAll();
     }
     
 
