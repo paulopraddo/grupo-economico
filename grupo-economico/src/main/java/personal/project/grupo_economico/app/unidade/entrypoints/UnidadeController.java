@@ -3,6 +3,7 @@ package personal.project.grupo_economico.app.unidade.entrypoints;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import lombok.AllArgsConstructor;
 import personal.project.grupo_economico.app.unidade.restModels.GetUnidadeRestModel;
 import personal.project.grupo_economico.app.unidade.restModels.UpdateUnidadeRestModel;
 import personal.project.grupo_economico.app.unidade.restModels.UploadUnidadeRestModel;
+import personal.project.grupo_economico.domain.unidade.useCases.DeleteUnidadeUseCase;
 import personal.project.grupo_economico.domain.unidade.useCases.GetListOfUnidadeUseCase;
 import personal.project.grupo_economico.domain.unidade.useCases.GetUnidadeUseCase;
 import personal.project.grupo_economico.domain.unidade.useCases.UpdateUnidadeUseCase;
@@ -29,6 +31,7 @@ public class UnidadeController {
     private final GetUnidadeUseCase getUnidadeUseCase;
     private final GetListOfUnidadeUseCase getListOfUnidadeUseCase;
     private final UpdateUnidadeUseCase updateUnidadeUseCase;
+    private final DeleteUnidadeUseCase deleteUnidadeUseCase;
 
     @PostMapping()
     public ResponseEntity<String> uploadUnidade(@RequestBody UploadUnidadeRestModel restModel) {
@@ -54,5 +57,13 @@ public class UnidadeController {
         this.updateUnidadeUseCase.execute(restModel);
 
         return ResponseEntity.ok().body("Unidade alterada com sucesso.");
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteUnidade(@PathVariable String id) {
+
+        this.deleteUnidadeUseCase.execute(id);
+
+        return ResponseEntity.ok().body("Unidade deletada com sucesso");
     }
 }

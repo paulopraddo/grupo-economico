@@ -14,4 +14,6 @@ public interface UnidadeDataProvider {
     List<UnidadeEntity> getListOfUnidade();
 
     void updateUnidade(UpdateUnidadeRestModel restModel);
+
+    void deleteUnidade(String id);
 }
