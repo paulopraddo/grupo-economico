@@ -42,6 +42,11 @@ public class UnidadeProvider implements UnidadeDataProvider{
 
         this.repository.save(entity);
     }
+
+    @Override
+    public void deleteUnidade(String id) {
+        this.repository.deleteById(id);
+    }
     
 
 }
