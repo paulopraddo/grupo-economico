@@ -1,5 +1,7 @@
 package personal.project.grupo_economico.app.colaborador.entrypoints;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +14,7 @@ import lombok.AllArgsConstructor;
 import personal.project.grupo_economico.app.colaborador.restModels.GetColaboradorRestModel;
 import personal.project.grupo_economico.app.colaborador.restModels.UploadColaboradorRestModel;
 import personal.project.grupo_economico.domain.colaborador.useCases.GetColaboradorUseCase;
+import personal.project.grupo_economico.domain.colaborador.useCases.GetListOfColaboradorUseCase;
 import personal.project.grupo_economico.domain.colaborador.useCases.UploadColaboradorUseCase;
 
 @RestController
@@ -21,6 +24,7 @@ public class ColaboradorController {
 
     private final UploadColaboradorUseCase uploadColaboradorUseCase;
     private final GetColaboradorUseCase getColaboradorUseCase;
+    private final GetListOfColaboradorUseCase getListOfColaboradorUseCase;
 
     @PostMapping
     public ResponseEntity<String> uploadColaborador(@RequestBody UploadColaboradorRestModel restModel) {
@@ -33,5 +37,10 @@ public class ColaboradorController {
     @GetMapping("/{id}")
     public ResponseEntity<GetColaboradorRestModel> getColaborador(@PathVariable String id) {
         return ResponseEntity.ok().body(this.getColaboradorUseCase.execute(id));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<GetColaboradorRestModel>> getListOfColaborador() {
+        return ResponseEntity.ok().body(this.getListOfColaboradorUseCase.execute());
     }
 }
