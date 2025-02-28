@@ -1,5 +1,7 @@
 package personal.project.grupo_economico.app.colaborador.provider;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
@@ -20,6 +22,11 @@ public class ColaboradorProvider implements ColaboradorDataProvider {
     @Override
     public ColaboradorEntity getColaborador(String id) {
         return this.repository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<ColaboradorEntity> getListOfColaborador() {
+        return this.repository.findAll();
     }
 
 }
