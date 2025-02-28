@@ -17,4 +17,9 @@ public class ColaboradorProvider implements ColaboradorDataProvider {
         this.repository.save(entity);
     }
 
+    @Override
+    public ColaboradorEntity getColaborador(String id) {
+        return this.repository.findById(id).orElse(null);
+    }
+
 }
