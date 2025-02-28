@@ -5,4 +5,6 @@ import personal.project.grupo_economico.app.colaborador.provider.entity.Colabora
 public interface ColaboradorDataProvider {
 
     void uploadColaborador(ColaboradorEntity entity);
+
+    ColaboradorEntity getColaborador(String id);
 }
