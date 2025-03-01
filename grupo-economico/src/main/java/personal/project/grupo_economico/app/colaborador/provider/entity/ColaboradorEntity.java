@@ -17,9 +17,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import personal.project.grupo_economico.app.unidade.provider.entity.UnidadeEntity;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "colaborador")
 @AllArgsConstructor
