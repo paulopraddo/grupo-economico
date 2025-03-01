@@ -3,6 +3,7 @@ package personal.project.grupo_economico.app.colaborador.provider;
 import java.util.List;
 
 import personal.project.grupo_economico.app.colaborador.provider.entity.ColaboradorEntity;
+import personal.project.grupo_economico.app.colaborador.restModels.UpdateColaboradorRestModel;
 
 public interface ColaboradorDataProvider {
 
@@ -11,4 +12,6 @@ public interface ColaboradorDataProvider {
     ColaboradorEntity getColaborador(String id);
 
     List<ColaboradorEntity> getListOfColaborador();
+
+    void updateColaborador(UpdateColaboradorRestModel restModel);
 }

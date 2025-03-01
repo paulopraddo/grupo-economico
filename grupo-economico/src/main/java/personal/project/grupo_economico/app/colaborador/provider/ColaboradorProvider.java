@@ -6,7 +6,9 @@ import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
 import personal.project.grupo_economico.app.colaborador.provider.entity.ColaboradorEntity;
+import personal.project.grupo_economico.app.colaborador.restModels.UpdateColaboradorRestModel;
 import personal.project.grupo_economico.app.grupoEconomico.repository.ColaboradroRepository;
+import personal.project.grupo_economico.app.unidade.provider.entity.UnidadeEntity;
 
 @Component
 @AllArgsConstructor
@@ -27,6 +29,18 @@ public class ColaboradorProvider implements ColaboradorDataProvider {
     @Override
     public List<ColaboradorEntity> getListOfColaborador() {
         return this.repository.findAll();
+    }
+
+    @Override
+    public void updateColaborador(UpdateColaboradorRestModel restModel) {
+        ColaboradorEntity entity = this.repository.findById(restModel.getId()).orElse(null);
+
+        entity.setNome(restModel.getNome());
+        entity.setEmail(restModel.getEmail());
+        entity.setCpf(restModel.getCpf());
+        entity.setUnidade(UnidadeEntity.builder().id(restModel.getUnidadadeId()).build());
+
+        this.repository.save(entity);
     }
 
 }
