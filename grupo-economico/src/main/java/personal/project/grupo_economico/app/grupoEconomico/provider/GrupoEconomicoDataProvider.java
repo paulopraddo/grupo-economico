@@ -9,7 +9,7 @@ public interface GrupoEconomicoDataProvider {
 
     void uploadGrupoEconomico(GrupoEconomicoEntity entity);
 
-    GrupoEconomicoEntity getGrupoEconomicoEntityById(String id);
+    GrupoEconomicoEntity getGrupoEconomicoEntityFindByName(String nome);
 
     List<GrupoEconomicoEntity> getListOfGrupoEconomicoEntity();
 

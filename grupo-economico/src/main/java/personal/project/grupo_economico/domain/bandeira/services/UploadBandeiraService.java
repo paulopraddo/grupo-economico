@@ -24,13 +24,13 @@ public class UploadBandeiraService implements UploadBandeiraUseCase{
 
         BandeiraEntity bandeiraEntity = this.converter.convertToEntity(restModel);
 
-        GrupoEconomicoEntity grupoEconomicoEntity = this.grupoEconomicoDataProvider.getGrupoEconomicoEntityById(restModel.getGrupoEconomicoId());
+        GrupoEconomicoEntity grupoEconomicoEntity = this.grupoEconomicoDataProvider.getGrupoEconomicoEntityFindByName(restModel.getGrupoEconomicoId());
         
         if(grupoEconomicoEntity == null) {
             throw new RuntimeException("Não foi encontrado nenhum grupo economico correspondente.");
         }
 
-        bandeiraEntity.setGrupoEconomico(this.grupoEconomicoDataProvider.getGrupoEconomicoEntityById(restModel.getGrupoEconomicoId()));
+        bandeiraEntity.setGrupoEconomico(this.grupoEconomicoDataProvider.getGrupoEconomicoEntityFindByName(restModel.getGrupoEconomicoId()));
 
         this.bandeiraDataProvider.uploadBandeira(bandeiraEntity);
     }

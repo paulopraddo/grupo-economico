@@ -17,7 +17,7 @@ public class UpdateGrupoEconomicoNomeService implements UpdateGrupoEconomicoNome
     @Override
     public void execute(UpdateGrupoEconomicoNomeDto dto) {
         
-        GrupoEconomicoEntity entity = this.dataProvider.getGrupoEconomicoEntityById(dto.getId());
+        GrupoEconomicoEntity entity = this.dataProvider.getGrupoEconomicoEntityFindByName(dto.getId());
 
         if(entity == null) {
             throw new RuntimeException("Grupo economico não pode ser encontrado, insira um ID correto");
