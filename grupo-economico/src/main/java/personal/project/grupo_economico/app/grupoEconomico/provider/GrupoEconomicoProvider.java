@@ -21,7 +21,7 @@ public class GrupoEconomicoProvider implements GrupoEconomicoDataProvider{
     }
 
     @Override
-    public GrupoEconomicoEntity getGrupoEconomicoEntityFindByName(String nome) {
+    public GrupoEconomicoEntity getGrupoEconomicoEntity(String nome) {
         return this.repository.findByNome(nome);
     }
 
@@ -40,8 +40,8 @@ public class GrupoEconomicoProvider implements GrupoEconomicoDataProvider{
     }
 
     @Override
-    public void deleteGrupoEconomicoEntityById(String id) {
-        this.repository.deleteById(id);
+    public void deleteGrupoEconomico(String nome) {
+        this.repository.deleteByNome(nome);
     }
 
 }

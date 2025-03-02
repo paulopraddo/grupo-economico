@@ -19,7 +19,7 @@ public class GetGrupoEconomicoService implements GetGrupoEconomicoUseCase {
     @Override
     public GetGrupoEconomicoRestModel execute(String nome) {
         
-        GrupoEconomicoEntity entity = this.dataProvider.getGrupoEconomicoEntityFindByName(nome);
+        GrupoEconomicoEntity entity = this.dataProvider.getGrupoEconomicoEntity(nome);
 
         if(entity == null) {
             throw new RuntimeException("Grupo economico não pode ser encontrado, insira um ID correto");

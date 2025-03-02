@@ -9,12 +9,12 @@ public interface GrupoEconomicoDataProvider {
 
     void uploadGrupoEconomico(GrupoEconomicoEntity entity);
 
-    GrupoEconomicoEntity getGrupoEconomicoEntityFindByName(String nome);
+    GrupoEconomicoEntity getGrupoEconomicoEntity(String nome);
 
     List<GrupoEconomicoEntity> getListOfGrupoEconomicoEntity();
 
     void updateGrupoEconomicoNome(UpdateGrupoEconomicoNomeDto dto);
 
-    void deleteGrupoEconomicoEntityById(String id);
+    void deleteGrupoEconomico(String nome);
     
 }

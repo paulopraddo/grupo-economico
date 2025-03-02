@@ -60,17 +60,17 @@ public class GrupoEconomicoController {
     }
 
     @PutMapping
-    public ResponseEntity<String> updateGrupoEconomicoNome(@RequestBody UpdateGrupoEconomicoNomeDto dto) {                                                                                            
+    public ResponseEntity<String> updateGrupoEconomico(@RequestBody UpdateGrupoEconomicoNomeDto dto) {                                                                                            
 
         this.updateGrupoEconomicoService.execute(dto);
 
         return ResponseEntity.ok().body("Grupo economico atualizado com sucesso");
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteGrupoEconomico(@PathVariable String id) {
+    @DeleteMapping("/{nome}")
+    public ResponseEntity<String> deleteGrupoEconomico(@PathVariable String nome) {
         
-        this.deleteGrupoEconomicoUseCase.execute(id);
+        this.deleteGrupoEconomicoUseCase.execute(nome);
 
         return ResponseEntity.ok().body("Grupo economico deletado com sucesso");
     }
