@@ -22,8 +22,8 @@ public class BandeiraProvider implements BandeiraDataProvider {
     }
 
     @Override
-    public BandeiraEntity getBandeiraEntity(String id) {
-        return this.repository.findById(id).orElse(null);
+    public BandeiraEntity getBandeiraEntity(String nome) {
+        return this.repository.findByNome(nome);
     }
 
     @Override
