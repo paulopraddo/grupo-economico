@@ -14,4 +14,6 @@ public interface ColaboradorDataProvider {
     List<ColaboradorEntity> getListOfColaborador();
 
     void updateColaborador(UpdateColaboradorRestModel restModel);
+
+    void deleteColaborador(String id);
 }
