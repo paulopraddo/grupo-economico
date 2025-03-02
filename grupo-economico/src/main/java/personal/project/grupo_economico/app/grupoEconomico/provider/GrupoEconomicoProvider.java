@@ -32,9 +32,9 @@ public class GrupoEconomicoProvider implements GrupoEconomicoDataProvider{
 
     @Override
     public void updateGrupoEconomicoNome(UpdateGrupoEconomicoNomeDto dto) {
-        GrupoEconomicoEntity entity = this.repository.findById(dto.getId()).orElse(null);
+        GrupoEconomicoEntity entity = this.repository.findByNome(dto.getNome());
 
-        entity.setNome(dto.getNome());
+        entity.setNome(dto.getNewNome());
         
         this.repository.save(entity);
     }
