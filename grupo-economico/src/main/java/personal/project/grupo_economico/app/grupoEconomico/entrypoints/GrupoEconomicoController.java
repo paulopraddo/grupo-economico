@@ -44,7 +44,7 @@ public class GrupoEconomicoController {
     }
 
     @GetMapping("/{nome}")
-    public ResponseEntity<GetGrupoEconomicoRestModel> getGrupoEconomicoById(@PathVariable String nome) {
+    public ResponseEntity<GetGrupoEconomicoRestModel> getGrupoEconomico(@PathVariable String nome) {
 
         GetGrupoEconomicoRestModel restModel = this.getGrupoEconomicoUseCase.execute(nome);
 
@@ -52,7 +52,7 @@ public class GrupoEconomicoController {
     }
     
     @GetMapping
-    public ResponseEntity<List<GetGrupoEconomicoRestModel>> getGrupoEconomico() {
+    public ResponseEntity<List<GetGrupoEconomicoRestModel>> getListOfGrupoEconomico() {
         
         List<GetGrupoEconomicoRestModel> listOfGetGrupoEconomicoRestModels = this.getAllGrupoEconomicoUseCase.execute();
 

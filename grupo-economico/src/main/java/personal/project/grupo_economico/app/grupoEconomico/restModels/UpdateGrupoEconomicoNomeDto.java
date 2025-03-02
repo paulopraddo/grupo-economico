@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class UpdateGrupoEconomicoNomeDto {
 
-    String id;
     String nome;
+    String newNome;
 }
