@@ -43,10 +43,10 @@ public class BandeiraController {
 
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<GetBandeiraRestModel> getBandeira(@PathVariable String id) {
+    @GetMapping("/{nome}")
+    public ResponseEntity<GetBandeiraRestModel> getBandeira(@PathVariable String nome) {
 
-        GetBandeiraRestModel restModel = this.getBandeiraUseCase.execute(id);
+        GetBandeiraRestModel restModel = this.getBandeiraUseCase.execute(nome);
 
         return ResponseEntity.ok().body(restModel);
     }

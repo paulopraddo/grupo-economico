@@ -17,9 +17,9 @@ public class GetBandeiraService implements GetBandeiraUseCase {
     private final BandeiraEntityToGetBandeiraRestModel converter;
 
     @Override
-    public GetBandeiraRestModel execute(String id) {
+    public GetBandeiraRestModel execute(String nome) {
 
-        BandeiraEntity entity = this.bandeiraDataProvider.getBandeiraEntity(id);
+        BandeiraEntity entity = this.bandeiraDataProvider.getBandeiraEntity(nome);
 
         if(entity == null) {
             throw new RuntimeException("Não foi possivel encontrar a bandeira com o ID especificado");
