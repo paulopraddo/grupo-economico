@@ -43,11 +43,10 @@ public class GrupoEconomicoController {
 
     }
 
-    //retornar pelo nome e não pelo ID
-    @GetMapping("/{id}")
-    public ResponseEntity<GetGrupoEconomicoRestModel> getGrupoEconomicoById(@PathVariable String id) {
+    @GetMapping("/{nome}")
+    public ResponseEntity<GetGrupoEconomicoRestModel> getGrupoEconomicoById(@PathVariable String nome) {
 
-        GetGrupoEconomicoRestModel restModel = this.getGrupoEconomicoUseCase.execute(id);
+        GetGrupoEconomicoRestModel restModel = this.getGrupoEconomicoUseCase.execute(nome);
 
         return ResponseEntity.ok().body(restModel);
     }

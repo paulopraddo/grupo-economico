@@ -9,4 +9,5 @@ import personal.project.grupo_economico.app.grupoEconomico.provider.entity.Grupo
 @Repository
 public interface GrupoEconomicoRepository extends JpaRepository<GrupoEconomicoEntity, String> {
 
+    GrupoEconomicoEntity findByNome(String nome);
 }

@@ -21,8 +21,8 @@ public class GrupoEconomicoProvider implements GrupoEconomicoDataProvider{
     }
 
     @Override
-    public GrupoEconomicoEntity getGrupoEconomicoEntityById(String id) {
-        return this.repository.findById(id).orElse(null);
+    public GrupoEconomicoEntity getGrupoEconomicoEntityFindByName(String nome) {
+        return this.repository.findByNome(nome);
     }
 
     @Override

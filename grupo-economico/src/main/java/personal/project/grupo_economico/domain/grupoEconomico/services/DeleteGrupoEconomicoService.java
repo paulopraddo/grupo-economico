@@ -15,7 +15,7 @@ public class DeleteGrupoEconomicoService implements DeleteGrupoEconomicoUseCase{
 
     @Override
     public void execute(String id) {
-        GrupoEconomicoEntity entity = this.dataProvider.getGrupoEconomicoEntityById(id);
+        GrupoEconomicoEntity entity = this.dataProvider.getGrupoEconomicoEntityFindByName(id);
 
         if(entity == null) {
             throw new RuntimeException("Grupo economico não pode ser encontrado, insira um ID correto");

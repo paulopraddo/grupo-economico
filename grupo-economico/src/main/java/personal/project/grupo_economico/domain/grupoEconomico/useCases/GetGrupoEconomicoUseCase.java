@@ -4,5 +4,5 @@ import personal.project.grupo_economico.app.grupoEconomico.restModels.GetGrupoEc
 
 public interface GetGrupoEconomicoUseCase {
 
-    GetGrupoEconomicoRestModel execute(String id);
+    GetGrupoEconomicoRestModel execute(String nome);
 }
