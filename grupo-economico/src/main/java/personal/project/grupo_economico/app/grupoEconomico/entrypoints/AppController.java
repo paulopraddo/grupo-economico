@@ -24,7 +24,7 @@ import personal.project.grupo_economico.domain.grupoEconomico.useCases.UpdateGru
 import personal.project.grupo_economico.domain.grupoEconomico.useCases.UploadGrupoEconomicoUseCase;
 
 @RestController
-@RequestMapping("/app/grupo-economico")
+@RequestMapping("/grupo-economico")
 @AllArgsConstructor
 public class AppController {
 
