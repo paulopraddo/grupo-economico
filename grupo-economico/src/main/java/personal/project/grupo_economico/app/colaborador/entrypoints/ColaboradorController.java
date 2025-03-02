@@ -30,6 +30,11 @@ public class ColaboradorController {
     private final GetListOfColaboradorUseCase getListOfColaboradorUseCase;
     private final UpdateColaboradorUseCase updateColaboradorUseCase;
 
+    @GetMapping
+    public ResponseEntity<String> teste() {
+        return ResponseEntity.ok().body("Teste");
+    }
+
     @PostMapping
     public ResponseEntity<String> uploadColaborador(@RequestBody UploadColaboradorRestModel restModel) {
 
@@ -43,7 +48,7 @@ public class ColaboradorController {
         return ResponseEntity.ok().body(this.getColaboradorUseCase.execute(id));
     }
 
-    @GetMapping
+    //@GetMapping
     public ResponseEntity<List<GetColaboradorRestModel>> getListOfColaborador() {
         return ResponseEntity.ok().body(this.getListOfColaboradorUseCase.execute());
     }

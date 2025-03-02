@@ -25,7 +25,7 @@ import personal.project.grupo_economico.domain.bandeira.useCases.UpdateBandeiraN
 import personal.project.grupo_economico.domain.bandeira.useCases.UploadBandeiraUseCase;
 
 @RestController
-@RequestMapping("/app/bandeira")
+@RequestMapping("/bandeira")
 @AllArgsConstructor
 public class BandeiraController {
 
