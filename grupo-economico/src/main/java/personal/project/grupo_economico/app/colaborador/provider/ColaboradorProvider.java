@@ -43,4 +43,9 @@ public class ColaboradorProvider implements ColaboradorDataProvider {
         this.repository.save(entity);
     }
 
+    @Override
+    public void deleteColaborador(String id) {
+        this.repository.deleteById(id);
+    }
+
 }
