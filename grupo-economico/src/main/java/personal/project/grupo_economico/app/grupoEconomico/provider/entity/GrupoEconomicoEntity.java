@@ -33,7 +33,7 @@ public class GrupoEconomicoEntity {
     private String id;
     
     @Nonnull
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String nome;
 
     @Column(nullable = false, updatable = false)

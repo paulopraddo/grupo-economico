@@ -26,7 +26,7 @@ import personal.project.grupo_economico.domain.grupoEconomico.useCases.UploadGru
 @RestController
 @RequestMapping("/grupo-economico")
 @AllArgsConstructor
-public class AppController {
+public class GrupoEconomicoController {
 
     private final UploadGrupoEconomicoUseCase uploadGrupoEconomicoUseCase;
     private final GetGrupoEconomicoUseCase getGrupoEconomicoUseCase;
@@ -43,18 +43,21 @@ public class AppController {
 
     }
 
+    //retornar pelo nome e não pelo ID
     @GetMapping("/{id}")
     public ResponseEntity<GetGrupoEconomicoRestModel> getGrupoEconomicoById(@PathVariable String id) {
 
-        return ResponseEntity.ok().body(this.getGrupoEconomicoUseCase.execute(id));
-        
+        GetGrupoEconomicoRestModel restModel = this.getGrupoEconomicoUseCase.execute(id);
+
+        return ResponseEntity.ok().body(restModel);
     }
     
     @GetMapping
     public ResponseEntity<List<GetGrupoEconomicoRestModel>> getGrupoEconomico() {
         
-        return ResponseEntity.ok().body(this.getAllGrupoEconomicoUseCase.execute());
-        
+        List<GetGrupoEconomicoRestModel> listOfGetGrupoEconomicoRestModels = this.getAllGrupoEconomicoUseCase.execute();
+
+        return ResponseEntity.ok().body(listOfGetGrupoEconomicoRestModels);
     }
 
     @PutMapping
