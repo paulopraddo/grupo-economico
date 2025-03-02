@@ -14,14 +14,14 @@ public class DeleteGrupoEconomicoService implements DeleteGrupoEconomicoUseCase{
     private final GrupoEconomicoDataProvider dataProvider;
 
     @Override
-    public void execute(String id) {
-        GrupoEconomicoEntity entity = this.dataProvider.getGrupoEconomicoEntityFindByName(id);
+    public void execute(String nome) {
+        GrupoEconomicoEntity entity = this.dataProvider.getGrupoEconomicoEntity(nome);
 
         if(entity == null) {
-            throw new RuntimeException("Grupo economico não pode ser encontrado, insira um ID correto");
+            throw new RuntimeException("Grupo economico não pode ser encontrado.");
         }
 
-        this.dataProvider.deleteGrupoEconomicoEntityById(id);
+        this.dataProvider.deleteGrupoEconomico(nome);
     }
 
 
