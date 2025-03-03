@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 
 import org.hibernate.annotations.UuidGenerator;
 
-import jakarta.annotation.Nonnull;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -32,7 +31,6 @@ public class GrupoEconomicoEntity {
     @UuidGenerator
     private String id;
     
-    @Nonnull
     @Column(nullable = false, unique = true)
     private String nome;
 

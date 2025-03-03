@@ -6,7 +6,7 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import personal.project.grupo_economico.app.bandeira.provider.BandeiraDataProvider;
 import personal.project.grupo_economico.app.bandeira.provider.entity.BandeiraEntity;
-import personal.project.grupo_economico.app.bandeira.restModels.UpdateBandeiraNomeRestModel;
+import personal.project.grupo_economico.app.bandeira.restModels.UpdateBandeiraDto;
 import personal.project.grupo_economico.domain.bandeira.useCases.UpdateBandeiraNomeUseCase;
 
 @Service
@@ -16,15 +16,15 @@ public class UpdateBandeiraNomeService implements UpdateBandeiraNomeUseCase {
     private final BandeiraDataProvider bandeiraDataProvider;
     
     @Override
-    public void execute(UpdateBandeiraNomeRestModel restModel) {
+    public void execute(UpdateBandeiraDto dto) {
 
-        BandeiraEntity entity = this.bandeiraDataProvider.getBandeiraEntity(restModel.getId());
+        BandeiraEntity entity = this.bandeiraDataProvider.getBandeiraEntity(dto.getNome());
 
         if(entity == null) {
             throw new EntityNotFoundException("A bandeira especificada não foi encontrada");
         }
         
-        this.bandeiraDataProvider.updateBandeiraEntityNome(restModel);
+        this.bandeiraDataProvider.updateBandeiraEntity(dto);
     }
 
     
