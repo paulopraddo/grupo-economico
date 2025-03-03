@@ -3,8 +3,9 @@ package personal.project.grupo_economico.app.bandeira.restModels;
 import lombok.Data;
 
 @Data
-public class UpdateBandeiraGrupoEconomicoRestModel {
+public class UpdateBandeiraDto {
 
-    private String id;
+    private String nome;
+    private String newNome;
     private String grupoEconomicoId;
 }

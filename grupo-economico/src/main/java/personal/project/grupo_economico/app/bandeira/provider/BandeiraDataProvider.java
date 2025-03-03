@@ -3,8 +3,7 @@ package personal.project.grupo_economico.app.bandeira.provider;
 import java.util.List;
 
 import personal.project.grupo_economico.app.bandeira.provider.entity.BandeiraEntity;
-import personal.project.grupo_economico.app.bandeira.restModels.UpdateBandeiraGrupoEconomicoRestModel;
-import personal.project.grupo_economico.app.bandeira.restModels.UpdateBandeiraNomeRestModel;
+import personal.project.grupo_economico.app.bandeira.restModels.UpdateBandeiraDto;
 
 public interface BandeiraDataProvider {
 
@@ -14,9 +13,7 @@ public interface BandeiraDataProvider {
 
     List<BandeiraEntity> getAllBandeiraEntitys();
 
-    void updateBandeiraEntityNome(UpdateBandeiraNomeRestModel restModel);
+    void updateBandeiraEntity(UpdateBandeiraDto restModel);
     
-    int updateBandeiraEntityGrupoEconomico(UpdateBandeiraGrupoEconomicoRestModel restModel);
-
     void deleteBandeira(String id);
 }
