@@ -34,10 +34,11 @@ public class BandeiraController {
     private final DeleteBandeiraUseCase deleteBandeiraUseCase;
 
     @PostMapping
-    public void uploadBandeira(@RequestBody UploadBandeiraRestModel restModel) {
+    public ResponseEntity<String> uploadBandeira(@RequestBody UploadBandeiraRestModel restModel) {
 
         this.uploadBandeiraUseCase.execute(restModel);
 
+        return ResponseEntity.ok().body("Registro adicionado com sucesso");
     }
 
     @GetMapping("/{nome}")
