@@ -64,10 +64,10 @@ public class BandeiraController {
         return ResponseEntity.ok().body("Nome da bandeira atualizado com sucesso");
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteBandeira(@PathVariable String id) {
+    @DeleteMapping("/{nome}")
+    public ResponseEntity<String> deleteBandeira(@PathVariable String nome) {
 
-        this.deleteBandeiraUseCase.execute(id);
+        this.deleteBandeiraUseCase.execute(nome);
 
         return ResponseEntity.ok().body("Bandeira deletada com sucesso");
     }

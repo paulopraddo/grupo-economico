@@ -32,7 +32,10 @@ public class BandeiraEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+    
+    @Column(nullable = false, unique = true)
     private String nome;
+
     @ManyToOne
     @JoinColumn(name = "grupo_economico_id", nullable = false)
     private GrupoEconomicoEntity grupoEconomico;

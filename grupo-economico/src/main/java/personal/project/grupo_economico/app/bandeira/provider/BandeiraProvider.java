@@ -43,8 +43,8 @@ public class BandeiraProvider implements BandeiraDataProvider {
     }
 
     @Override
-    public void deleteBandeira(String id) {
-        this.repository.deleteById(id);
+    public void deleteBandeira(String nome) {
+        this.repository.deleteByNome(nome);
     }
 
 }
