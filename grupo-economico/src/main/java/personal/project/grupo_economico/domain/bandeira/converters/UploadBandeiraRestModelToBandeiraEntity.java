@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import personal.project.grupo_economico.app.bandeira.provider.entity.BandeiraEntity;
 import personal.project.grupo_economico.app.bandeira.restModels.UploadBandeiraRestModel;
+import personal.project.grupo_economico.app.grupoEconomico.provider.entity.GrupoEconomicoEntity;
 import personal.project.grupo_economico.utils.ModelEntityMapper;
 
 @Component
@@ -20,6 +21,7 @@ public class UploadBandeiraRestModelToBandeiraEntity extends ModelEntityMapper<B
         return BandeiraEntity
         .builder()
         .nome(model.getNome())
+        .grupoEconomico(GrupoEconomicoEntity.builder().id(model.getGrupoEconomicoId()).build())
         .build();
     }
 
