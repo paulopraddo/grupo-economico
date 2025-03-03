@@ -15,14 +15,14 @@ public class DeleteBandeiraService implements DeleteBandeiraUseCase{
     private final BandeiraDataProvider dataProvider;
 
     @Override
-    public void execute(String id) {
+    public void execute(String nome) {
 
-        BandeiraEntity entity = this.dataProvider.getBandeiraEntity(id);
+        BandeiraEntity entity = this.dataProvider.getBandeiraEntity(nome);
 
         if(entity == null) {
             throw new EntityNotFoundException("Registro não encontrado");
         }
 
-        this.dataProvider.deleteBandeira(id);
+        this.dataProvider.deleteBandeira(nome);
     }
 }

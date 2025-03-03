@@ -9,11 +9,11 @@ public interface BandeiraDataProvider {
 
     void uploadBandeira(BandeiraEntity entity);
 
-    BandeiraEntity getBandeiraEntity(String id);
+    BandeiraEntity getBandeiraEntity(String nome);
 
     List<BandeiraEntity> getAllBandeiraEntitys();
 
-    void updateBandeiraEntity(UpdateBandeiraDto restModel);
+    void updateBandeiraEntity(UpdateBandeiraDto dto);
     
-    void deleteBandeira(String id);
+    void deleteBandeira(String nome);
 }
