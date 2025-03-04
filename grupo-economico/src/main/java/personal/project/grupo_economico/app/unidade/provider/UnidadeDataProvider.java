@@ -9,7 +9,7 @@ public interface UnidadeDataProvider {
 
     void uploadUnidade(UnidadeEntity entity);
 
-    UnidadeEntity getUnidade(String id);
+    UnidadeEntity getUnidade(String nome);
 
     List<UnidadeEntity> getListOfUnidade();
 

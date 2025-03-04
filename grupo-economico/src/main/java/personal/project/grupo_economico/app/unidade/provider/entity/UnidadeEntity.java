@@ -32,6 +32,8 @@ public class UnidadeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+
+    @Column(nullable = true, unique = true)
     private String nomeFantasia;
     private String razaoSocial;
     private String cnpj;

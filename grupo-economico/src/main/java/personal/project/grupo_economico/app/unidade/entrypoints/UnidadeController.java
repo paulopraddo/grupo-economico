@@ -41,9 +41,9 @@ public class UnidadeController {
         return ResponseEntity.ok().body("Unidade adicionada com sucesso");
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<GetUnidadeRestModel> getUnidade(@PathVariable String id) {
-        return ResponseEntity.ok().body(this.getUnidadeUseCase.execute(id));
+    @GetMapping("/{nome}")
+    public ResponseEntity<GetUnidadeRestModel> getUnidade(@PathVariable String nome) {
+        return ResponseEntity.ok().body(this.getUnidadeUseCase.execute(nome));
     }
 
     @GetMapping

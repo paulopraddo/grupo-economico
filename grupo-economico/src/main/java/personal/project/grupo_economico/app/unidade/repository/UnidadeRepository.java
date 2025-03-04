@@ -9,4 +9,5 @@ import personal.project.grupo_economico.app.unidade.provider.entity.UnidadeEntit
 @Repository
 public interface UnidadeRepository extends JpaRepository<UnidadeEntity, String>{
 
+    UnidadeEntity findByNomeFantasia(String nome);
 }
