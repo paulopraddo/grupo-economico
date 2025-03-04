@@ -22,8 +22,8 @@ public class UnidadeProvider implements UnidadeDataProvider{
     }
 
     @Override
-    public UnidadeEntity getUnidade(String id) {
-        return this.repository.findById(id).orElse(null);
+    public UnidadeEntity getUnidade(String nome) {
+        return this.repository.findByNomeFantasia(nome);
     }
 
     @Override

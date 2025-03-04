@@ -18,9 +18,9 @@ public class GetUnidadeService implements GetUnidadeUseCase {
     private final UnidadeEntityToGetUnidadeRestModel converter;
 
     @Override
-    public GetUnidadeRestModel execute(String id) {
+    public GetUnidadeRestModel execute(String nome) {
         
-        UnidadeEntity entity = this.dataProvider.getUnidade(id);
+        UnidadeEntity entity = this.dataProvider.getUnidade(nome);
 
         if(entity == null) {
             throw new EntityNotFoundException("Não foi possivel encontrar uma unidade correspondente ao ID inserido");

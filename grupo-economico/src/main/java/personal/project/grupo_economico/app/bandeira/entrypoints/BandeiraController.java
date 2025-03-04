@@ -62,7 +62,7 @@ public class BandeiraController {
 
         this.updateBandeiraNomeUseCase.execute(restModel);
 
-        return ResponseEntity.ok().body("Nome da bandeira atualizado com sucesso");
+        return ResponseEntity.ok().body("Bandeira atualizada com sucesso");
     }
 
     @DeleteMapping("/{nome}")
