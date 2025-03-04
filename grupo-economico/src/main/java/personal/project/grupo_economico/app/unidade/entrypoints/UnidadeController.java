@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
 import personal.project.grupo_economico.app.unidade.restModels.GetUnidadeRestModel;
-import personal.project.grupo_economico.app.unidade.restModels.UpdateUnidadeRestModel;
+import personal.project.grupo_economico.app.unidade.restModels.UpdateUnidadeDto;
 import personal.project.grupo_economico.app.unidade.restModels.UploadUnidadeRestModel;
 import personal.project.grupo_economico.domain.unidade.useCases.DeleteUnidadeUseCase;
 import personal.project.grupo_economico.domain.unidade.useCases.GetListOfUnidadeUseCase;
@@ -52,7 +52,7 @@ public class UnidadeController {
     }
 
     @PutMapping
-    public ResponseEntity<String> updateUnidade(@RequestBody UpdateUnidadeRestModel restModel) {
+    public ResponseEntity<String> updateUnidade(@RequestBody UpdateUnidadeDto restModel) {
 
         this.updateUnidadeUseCase.execute(restModel);
 

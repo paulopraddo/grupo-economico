@@ -3,7 +3,7 @@ package personal.project.grupo_economico.app.unidade.provider;
 import java.util.List;
 
 import personal.project.grupo_economico.app.unidade.provider.entity.UnidadeEntity;
-import personal.project.grupo_economico.app.unidade.restModels.UpdateUnidadeRestModel;
+import personal.project.grupo_economico.app.unidade.restModels.UpdateUnidadeDto;
 
 public interface UnidadeDataProvider {
 
@@ -13,7 +13,7 @@ public interface UnidadeDataProvider {
 
     List<UnidadeEntity> getListOfUnidade();
 
-    void updateUnidade(UpdateUnidadeRestModel restModel);
+    void updateUnidade(UpdateUnidadeDto dto);
 
     void deleteUnidade(String id);
 }

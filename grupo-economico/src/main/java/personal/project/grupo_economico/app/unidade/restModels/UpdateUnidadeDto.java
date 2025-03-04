@@ -5,10 +5,10 @@ import lombok.Data;
 
 @Data
 @Builder
-public class UpdateUnidadeRestModel {
+public class UpdateUnidadeDto {
 
-    private String id;
     private String nomeFantasia;
+    private String newNomeFantasia;
     private String razaoSocial;
     private String cnpj;
     private String bandeiraId;

@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 import personal.project.grupo_economico.app.bandeira.provider.entity.BandeiraEntity;
 import personal.project.grupo_economico.app.unidade.provider.entity.UnidadeEntity;
 import personal.project.grupo_economico.app.unidade.repository.UnidadeRepository;
-import personal.project.grupo_economico.app.unidade.restModels.UpdateUnidadeRestModel;
+import personal.project.grupo_economico.app.unidade.restModels.UpdateUnidadeDto;
 
 @Component
 @AllArgsConstructor
@@ -32,13 +32,13 @@ public class UnidadeProvider implements UnidadeDataProvider{
     }
 
     @Override
-    public void updateUnidade(UpdateUnidadeRestModel restModel) {
-        UnidadeEntity entity = this.repository.findById(restModel.getId()).orElse(null);
+    public void updateUnidade(UpdateUnidadeDto dto) {
+        UnidadeEntity entity = this.repository.findByNomeFantasia(dto.getNomeFantasia());
 
-        entity.setNomeFantasia(restModel.getNomeFantasia());
-        entity.setRazaoSocial(restModel.getRazaoSocial());
-        entity.setCnpj(restModel.getCnpj());
-        entity.setBandeira(BandeiraEntity.builder().id(restModel.getBandeiraId()).build());
+        entity.setNomeFantasia(dto.getNewNomeFantasia());
+        entity.setRazaoSocial(dto.getRazaoSocial());
+        entity.setCnpj(dto.getCnpj());
+        entity.setBandeira(BandeiraEntity.builder().id(dto.getBandeiraId()).build());
 
         this.repository.save(entity);
     }
