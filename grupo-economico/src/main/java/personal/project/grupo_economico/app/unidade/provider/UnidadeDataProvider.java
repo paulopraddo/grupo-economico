@@ -15,5 +15,5 @@ public interface UnidadeDataProvider {
 
     void updateUnidade(UpdateUnidadeDto dto);
 
-    void deleteUnidade(String id);
+    void deleteUnidade(String nome);
 }

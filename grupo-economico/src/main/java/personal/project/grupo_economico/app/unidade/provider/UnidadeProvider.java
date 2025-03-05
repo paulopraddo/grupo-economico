@@ -44,8 +44,8 @@ public class UnidadeProvider implements UnidadeDataProvider{
     }
 
     @Override
-    public void deleteUnidade(String id) {
-        this.repository.deleteById(id);
+    public void deleteUnidade(String nome) {
+        this.repository.deleteByNomeFantasia(nome);
     }
     
 
