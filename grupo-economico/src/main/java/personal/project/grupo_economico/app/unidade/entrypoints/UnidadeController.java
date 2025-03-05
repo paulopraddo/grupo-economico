@@ -59,10 +59,10 @@ public class UnidadeController {
         return ResponseEntity.ok().body("Unidade alterada com sucesso.");
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteUnidade(@PathVariable String id) {
+    @DeleteMapping("/{nome}")
+    public ResponseEntity<String> deleteUnidade(@PathVariable String nome) {
 
-        this.deleteUnidadeUseCase.execute(id);
+        this.deleteUnidadeUseCase.execute(nome);
 
         return ResponseEntity.ok().body("Unidade deletada com sucesso");
     }

@@ -15,14 +15,14 @@ public class DeleteUnidadeService implements DeleteUnidadeUseCase {
     private final UnidadeDataProvider dataProvider;
 
     @Override
-    public void execute(String id) {
-        UnidadeEntity entity = this.dataProvider.getUnidade(id);
+    public void execute(String nome) {
+        UnidadeEntity entity = this.dataProvider.getUnidade(nome);
 
         if(entity == null) {
             throw new EntityNotFoundException("O registro selecionado não foi encontrado na base de dados");
         }
 
-        this.dataProvider.deleteUnidade(id);
+        this.dataProvider.deleteUnidade(nome);
     }
     
 }
