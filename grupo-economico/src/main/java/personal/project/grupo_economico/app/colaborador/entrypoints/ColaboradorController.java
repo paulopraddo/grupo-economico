@@ -41,9 +41,9 @@ public class ColaboradorController {
         return ResponseEntity.ok().body("Colaborador registrado com sucesso");
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<GetColaboradorRestModel> getColaborador(@PathVariable String id) {
-        return ResponseEntity.ok().body(this.getColaboradorUseCase.execute(id));
+    @GetMapping("/{nome}")
+    public ResponseEntity<GetColaboradorRestModel> getColaborador(@PathVariable String nome) {
+        return ResponseEntity.ok().body(this.getColaboradorUseCase.execute(nome));
     }
 
     @GetMapping
