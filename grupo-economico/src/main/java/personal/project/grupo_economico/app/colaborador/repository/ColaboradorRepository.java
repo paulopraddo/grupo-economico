@@ -1,4 +1,4 @@
-package personal.project.grupo_economico.app.grupoEconomico.repository;
+package personal.project.grupo_economico.app.colaborador.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import personal.project.grupo_economico.app.colaborador.provider.entity.ColaboradorEntity;
 
 @Repository
-public interface ColaboradroRepository extends JpaRepository<ColaboradorEntity, String> {
+public interface ColaboradorRepository extends JpaRepository<ColaboradorEntity, String> {
 
+    ColaboradorEntity findByNome(String nome);
 }

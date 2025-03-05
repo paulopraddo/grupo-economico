@@ -32,7 +32,10 @@ public class ColaboradorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+
+    @Column(unique = true, nullable = true)
     private String nome;
+    
     private String email;
     private String cpf;
     @ManyToOne

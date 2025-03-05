@@ -18,8 +18,8 @@ public class GetColaboradorService implements GetColaboradorUseCase {
     private final ColaboradorEntityToGetColaboradorRestModel converter;
 
     @Override
-    public GetColaboradorRestModel execute(String id) {
-        ColaboradorEntity entity = this.dataProvider.getColaborador(id);
+    public GetColaboradorRestModel execute(String nome) {
+        ColaboradorEntity entity = this.dataProvider.getColaborador(nome);
 
         if(entity == null) {
             throw new EntityNotFoundException("Não foi possivel encontrar o registro de colaborador");

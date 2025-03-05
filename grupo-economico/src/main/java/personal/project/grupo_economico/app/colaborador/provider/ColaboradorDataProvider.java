@@ -9,7 +9,7 @@ public interface ColaboradorDataProvider {
 
     void uploadColaborador(ColaboradorEntity entity);
 
-    ColaboradorEntity getColaborador(String id);
+    ColaboradorEntity getColaborador(String nome);
 
     List<ColaboradorEntity> getListOfColaborador();
 
