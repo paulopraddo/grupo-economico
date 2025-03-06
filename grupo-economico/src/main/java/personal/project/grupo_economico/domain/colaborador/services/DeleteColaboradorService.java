@@ -15,14 +15,14 @@ public class DeleteColaboradorService implements DeleteColaboradorUseCase {
     private final ColaboradorDataProvider dataProvider;
 
     @Override
-    public void execute(String id) {
-        ColaboradorEntity entity = this.dataProvider.getColaborador(id);
+    public void execute(String nome) {
+        ColaboradorEntity entity = this.dataProvider.getColaborador(nome);
 
         if(entity == null) {
             throw new EntityNotFoundException("Não foi possivel encontrar o registro de colaborador");
         }
 
-        this.dataProvider.deleteColaborador(id);
+        this.dataProvider.deleteColaborador(nome);
     }
 
 

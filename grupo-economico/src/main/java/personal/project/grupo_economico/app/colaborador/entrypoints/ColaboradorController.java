@@ -59,10 +59,10 @@ public class ColaboradorController {
         return ResponseEntity.ok().body("Colaborador atualizado com sucesso");
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteColaborador(@PathVariable String id) {
+    @DeleteMapping("/{nome}")
+    public ResponseEntity<String> deleteColaborador(@PathVariable String nome) {
 
-        this.deleteColaboradorUseCase.execute(id);
+        this.deleteColaboradorUseCase.execute(nome);
 
         return ResponseEntity.ok().body("Colaborador deletado com sucesso");
     }

@@ -32,20 +32,20 @@ public class ColaboradorProvider implements ColaboradorDataProvider {
     }
 
     @Override
-    public void updateColaborador(UpdateColaboradorDto restModel) {
-        ColaboradorEntity entity = this.getColaborador(restModel.getNome());
+    public void updateColaborador(UpdateColaboradorDto dto) {
+        ColaboradorEntity entity = this.getColaborador(dto.getNome());
 
-        entity.setNome(restModel.getNewNome());
-        entity.setEmail(restModel.getEmail());
-        entity.setCpf(restModel.getCpf());
-        entity.setUnidade(UnidadeEntity.builder().id(restModel.getUnidadeId()).build());
+        entity.setNome(dto.getNewNome());
+        entity.setEmail(dto.getEmail());
+        entity.setCpf(dto.getCpf());
+        entity.setUnidade(UnidadeEntity.builder().id(dto.getUnidadeId()).build());
 
         this.repository.save(entity);
     }
 
     @Override
-    public void deleteColaborador(String id) {
-        this.repository.deleteById(id);
+    public void deleteColaborador(String nome) {
+        this.repository.deleteByNome(nome);
     }
 
 }
