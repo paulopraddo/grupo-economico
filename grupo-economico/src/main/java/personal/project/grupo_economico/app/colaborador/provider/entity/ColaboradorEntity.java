@@ -33,7 +33,7 @@ public class ColaboradorEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(unique = true, nullable = true)
+    @Column(unique = true, nullable = false)
     private String nome;
     
     private String email;
