@@ -13,5 +13,5 @@ public class UpdateColaboradorDto {
     private String newNome;
     private String email;
     private String cpf;
-
+    private String unidadeId;
 }
