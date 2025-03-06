@@ -33,7 +33,7 @@ public class UnidadeEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(nullable = true, unique = true)
+    @Column(nullable = false, unique = true)
     private String nomeFantasia;
     private String razaoSocial;
     private String cnpj;

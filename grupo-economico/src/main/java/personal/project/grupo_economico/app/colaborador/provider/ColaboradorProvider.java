@@ -7,8 +7,7 @@ import org.springframework.stereotype.Component;
 import lombok.AllArgsConstructor;
 import personal.project.grupo_economico.app.colaborador.provider.entity.ColaboradorEntity;
 import personal.project.grupo_economico.app.colaborador.repository.ColaboradorRepository;
-import personal.project.grupo_economico.app.colaborador.restModels.UpdateColaboradorRestModel;
-import personal.project.grupo_economico.app.unidade.provider.entity.UnidadeEntity;
+import personal.project.grupo_economico.app.colaborador.restModels.UpdateColaboradorDto;
 
 @Component
 @AllArgsConstructor
@@ -32,13 +31,13 @@ public class ColaboradorProvider implements ColaboradorDataProvider {
     }
 
     @Override
-    public void updateColaborador(UpdateColaboradorRestModel restModel) {
-        ColaboradorEntity entity = this.repository.findById(restModel.getId()).orElse(null);
+    public void updateColaborador(UpdateColaboradorDto restModel) {
+        ColaboradorEntity entity = this.repository.findByNome(restModel.getNome());
 
-        entity.setNome(restModel.getNome());
+        //refatorar método para que seja possivel atualizar o registro da unidade do colaborador
+        entity.setNome(restModel.getNewNome());
         entity.setEmail(restModel.getEmail());
         entity.setCpf(restModel.getCpf());
-        entity.setUnidade(UnidadeEntity.builder().id(restModel.getUnidadadeId()).build());
 
         this.repository.save(entity);
     }

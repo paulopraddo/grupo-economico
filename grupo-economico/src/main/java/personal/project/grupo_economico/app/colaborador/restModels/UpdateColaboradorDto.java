@@ -7,12 +7,11 @@ import lombok.Data;
 @Data
 @Builder
 @AllArgsConstructor
-public class UpdateColaboradorRestModel {
+public class UpdateColaboradorDto {
 
-    private String id;
     private String nome;
+    private String newNome;
     private String email;
     private String cpf;
-    private String unidadadeId;
 
 }

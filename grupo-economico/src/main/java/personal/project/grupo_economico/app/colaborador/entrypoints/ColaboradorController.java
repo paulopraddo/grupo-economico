@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
 import personal.project.grupo_economico.app.colaborador.restModels.GetColaboradorRestModel;
-import personal.project.grupo_economico.app.colaborador.restModels.UpdateColaboradorRestModel;
+import personal.project.grupo_economico.app.colaborador.restModels.UpdateColaboradorDto;
 import personal.project.grupo_economico.app.colaborador.restModels.UploadColaboradorRestModel;
 import personal.project.grupo_economico.domain.colaborador.useCases.DeleteColaboradorUseCase;
 import personal.project.grupo_economico.domain.colaborador.useCases.GetColaboradorUseCase;
@@ -52,9 +52,9 @@ public class ColaboradorController {
     }
 
     @PutMapping
-    public ResponseEntity<String> updateColaborador(@RequestBody UpdateColaboradorRestModel restModel) {
+    public ResponseEntity<String> updateColaborador(@RequestBody UpdateColaboradorDto dto) {
 
-        this.updateColaboradorUseCase.execute(restModel);
+        this.updateColaboradorUseCase.execute(dto);
 
         return ResponseEntity.ok().body("Colaborador atualizado com sucesso");
     }
